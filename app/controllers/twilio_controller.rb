@@ -24,8 +24,8 @@ class TwilioController < ApplicationController
 
   def send_lunch_time
     # put your own credentials here
-    # debugger
-    lunch_location = params[:lunch_location] #get it from the request.
+    # debuggers
+    lunch_location = request.body.readpartial #get it from the request.
     account_sid = 'ACe39f617d99a09d34cb057bdb301be050'
     auth_token = 'e38b379ec6cfbd4b7f5d57b0636ee9d3'
     # set up a client to talk to the Twilio REST API
@@ -33,7 +33,7 @@ class TwilioController < ApplicationController
 
     Eater.all.each do |eater|
       message = @client.messages.create(
-        body: "Lunch is served at #{lunch_location}",
+        body: "Lunch is served at #{lunch_location}. Be there at noon!",
         to: eater.phone_number[1..-1], #Will eventually be a database of numbers from backend.
         from: "16073043504"
       )
