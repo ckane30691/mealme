@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'twilio/message', to: 'twilio#message'
   post 'twilio/send_lunch_time', to: 'twilio#send_lunch_time'
 
-  root 'static_pages#root'
+  resources :eaters, only: %i(index), defaults: { format: :json }
 
+  root 'static_pages#root'
 end
