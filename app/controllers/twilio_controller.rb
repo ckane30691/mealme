@@ -27,7 +27,7 @@ class TwilioController < ApplicationController
     account_sid = 'ACe39f617d99a09d34cb057bdb301be050'
     auth_token = 'e38b379ec6cfbd4b7f5d57b0636ee9d3'
 
-    lunch_location = 'This Location'
+    lunch_location = 'This Location' #get it from the request. 
 
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new(account_sid, auth_token)
