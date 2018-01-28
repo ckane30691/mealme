@@ -32,11 +32,13 @@ class TwilioController < ApplicationController
     @client = Twilio::REST::Client.new(account_sid, auth_token)
 
     Eater.all.each do |eater|
-      message = @client.messages.create(
-        body: "Lunch is served at #{lunch_location}. Be there at noon!",
-        to: eater.phone_number[1..-1], #Will eventually be a database of numbers from backend.
-        from: "16073043504"
-      )
+      fork do
+        message = @client.messages.create(
+          body: "Lunch is served at #{lunch_location}. Be there at noon!",
+          to: eater.phone_number[1..-1], #Will eventually be a database of numbers from backend.
+          from: "16073043504"
+        )
+      end 
     end
 
     render json: {status: "Messages sent"}
