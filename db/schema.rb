@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128021039) do
+ActiveRecord::Schema.define(version: 20180128034017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "eaters", force: :cascade do |t|
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.float "loc_x", null: false
     t.float "loc_y", null: false
     t.datetime "created_at", null: false

@@ -12,8 +12,8 @@ class TwilioController < ApplicationController
   end
 
   def message
+    add_user_to_database(params)
 
-    params[:body]
     response = Twilio::TwiML::MessagingResponse.new
     response.message do |message|
      message.body("Location Recieved. Look out for location info at 11:30 AM.")
@@ -43,6 +43,14 @@ class TwilioController < ApplicationController
 
   private
 
+  def add_user_to_database(params)
+    location_data = get_geocode(params[:Body])
+
+    new_eater = Eater.create(phone_number: params[:From],
+                             loc_x: location_data[:loc_x],
+                             loc_y: location_data[:loc_y])
+  end
+
   def get_geocode(text)
     query = parse_body(text)
 
@@ -56,10 +64,7 @@ class TwilioController < ApplicationController
   def send_message
   end
 
-  def add_user_to_database
-  end
-
   def parse_body(body)
-    body
+    body.gsub(" ", "+")
   end
 end
