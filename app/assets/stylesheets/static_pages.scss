@@ -1,8 +1,16 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: 'Rubik', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  display: flex;
+}
 
 #map {
-        height: 400px;
-        width: 100%;
-       }
+  height: 400px;
+  width: 100%;
+ }

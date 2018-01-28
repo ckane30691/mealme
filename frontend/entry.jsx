@@ -1,5 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
+import configureStore from './store/store';
 
+document.addEventListener("DOMContentLoaded", function() {
+  const store = configureStore();
+  console.log(store.getState());
   var loadMapScript = document.createElement('script');
   loadMapScript.onload = function() {
     alert("about to load the map");
