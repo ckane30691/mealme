@@ -61,7 +61,7 @@ class TwilioController < ApplicationController
   def get_geocode(text)
     query = parse_body(text)
 
-    response = open("https://maps.googleapis.com/maps/api/geocode/json?address=#{query}&key=#{ENV['maps_api_keys']}").read
+    response = open("https://maps.googleapis.com/maps/api/geocode/json?address=#{query}+sf&key=#{ENV['maps_api_keys']}").read
     loc_x = JSON.parse(response)['results'][0]["geometry"]["location"]["lat"]
     loc_y = JSON.parse(response)['results'][0]["geometry"]["location"]["lng"]
 

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.initMap = function initMap() {
       var sfBay = {lat: 37.770691, lng: -122.407650};
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
+        zoom: 13,
         center: sfBay
       });
 

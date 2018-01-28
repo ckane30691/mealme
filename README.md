@@ -4,20 +4,19 @@ MealMe helps food providers locate their customers more easily. The app is desig
 
 Contributors:
 
+Justin Deidrich - Business Concept/Presentation
+
 Cory Kane - Web Developer
 
 Adrian Jewell - Web Developer
 
-Justin Deidrich - Business Concept/Presentation
-
-
-#How does it work?
+# How does it work?
 
 1. Customers send their address to a specified phone number.
 
 2. MealMe will record the information in a database, and display the users location to the provider, using the app.
 
-3. When the provider wants to notify people about lunch, they send a mass notification to everybody who is registered. 
+3. When the provider wants to notify people about lunch, they send a mass notification to everybody who is registered.
 
 # Instructions for Running
 
@@ -31,10 +30,22 @@ In terminal, simply
 
 2. `bundle install`.
 
-3. Now, paste your google API KEYS in the application.yml file, and the Twilio api keys and phone number directly in the `./twilio_contoller.rb` file.
+3. Now, paste your google API KEYS in the `application.yml` file.  See the `twilio_controller.rb` for how to name them.
 
 4. run `npm install`.
 
 5. run `rails s` to start the server.
 
 6. `./ngrok http 3000` in yet another new shell - get ngrok [https://ngrok.com/3](here).
+
+Contact the contributors for a live demo!
+
+# Features
+
+1. Twilio mediates sending and receiving of sms text messages.
+
+2. Google Maps UI displays customer location. Provider can notify all customers with a click of a button.
+
+3. PostgreSQL database stores customer information. Users get added to the database when they text their location.
+
+4. Google Maps Geocoding API converts their address into coordinates.
