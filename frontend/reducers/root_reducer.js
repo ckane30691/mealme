@@ -4,7 +4,6 @@ import errors from './errors_reducer';
 
 const RootReducer = combineReducers({
   entities,
-  errors
 });
 
 export default RootReducer;
