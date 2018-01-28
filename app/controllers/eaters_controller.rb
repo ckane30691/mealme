@@ -1,0 +1,3 @@
+class EatersController < ApplicationController
+
+end

@@ -24,24 +24,28 @@ class TwilioController < ApplicationController
 
   def send_lunch_time
     # put your own credentials here
+    # debugger
     account_sid = 'ACe39f617d99a09d34cb057bdb301be050'
     auth_token = 'e38b379ec6cfbd4b7f5d57b0636ee9d3'
 
-    lunch_location = 'This Location' #get it from the request. 
+    lunch_location = params[:lunch_location] #get it from the request.
 
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new(account_sid, auth_token)
 
-    message = @client.messages.create(
-      body: "Lunch is served at #{lunch_location}",
-      to: '+16072216266', #Will eventually be a database of numbers from backend.
-      from: "16073043504"
-    )
+    Eater.all.each do |eater|
+      message = @client.messages.create(
+        body: "Lunch is served at #{lunch_location}",
+        to: eater.phone_number[1..-1], #Will eventually be a database of numbers from backend.
+        from: "16073043504"
+      )
+    end
 
     render json: {status: "Messages sent"}
   end
 
   private
+
 
   def add_user_to_database(params)
     location_data = get_geocode(params[:Body])

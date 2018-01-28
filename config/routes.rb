@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   post 'twilio/voice', to: 'twilio#voice'
   post 'twilio/message', to: 'twilio#message'
-  get 'twilio/send_lunch_time', to: 'twilio#send_lunch_time'
+  post 'twilio/send_lunch_time', to: 'twilio#send_lunch_time'
 
   root 'static_pages#root'
 
