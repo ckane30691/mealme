@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class TwilioController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -35,19 +37,29 @@ class TwilioController < ApplicationController
       to: '+16072216266', #Will eventually be a database of numbers from backend.
       from: "16073043504"
     )
-    # debugger
+
     render json: {status: "Messages sent"}
   end
 
-
   private
 
-  def get_geocode
+  def get_geocode(text)
+    query = parse_body(text)
+
+    response = open("https://maps.googleapis.com/maps/api/geocode/json?address=#{query}&key=#{ENV['maps_api_keys']}").read
+    loc_x = JSON.parse(response)['results'][0]["geometry"]["location"]["lat"]
+    loc_y = JSON.parse(response)['results'][0]["geometry"]["location"]["lng"]
+
+    {loc_x: loc_x, loc_y: loc_y}
   end
 
   def send_message
   end
 
   def add_user_to_database
+  end
+
+  def parse_body(body)
+    body
   end
 end
