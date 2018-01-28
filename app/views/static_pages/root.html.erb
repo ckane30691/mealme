@@ -4,14 +4,25 @@
            user: current_user).html_safe %>
   <% end %>
 </script>
-<header id="header">
-  <img src="https://s3-us-west-1.amazonaws.com/meal-me/MealMeLogo.png" />
-  <h1>Mealme</h1>
-</header>
+
+<div class="body-wrapper">
+
+<div class="stuff">
+
+  <header id="header">
+    <img src="https://s3-us-west-1.amazonaws.com/meal-me/MealMeLogo.png" />
+    <h1>Mealme</h1>
+  </header>
+
+</div>
+
 <div id="map"></div>
 
+</div>
 
-<input id="lunch_location_input" type="text" name="" value=""
-       placeholder="Where will you go today?">
-<button id="submit_lunch_location"
-        type="button" name="button">Submit Location to Subscribers</button>
+<div class="submit-location">
+  <input id="lunch_location_input" type="text" name="" value=""
+  placeholder="Where will you go today?">
+  <button id="submit_lunch_location"
+  type="button" name="button">Submit Location to Subscribers</button>
+</div>

@@ -6,11 +6,49 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.body-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
 header {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #map {
-  height: 400px;
+  height: 500px;
   width: 100%;
  }
+
+.submit-location {
+  display: flex;
+  flex-direction: column;
+}
+
+
+#lunch_location_input {
+  text-align: center;
+    box-shadow: 1px 1px 2px #888;
+    height: 3em;
+    border-radius: 5px;
+    border: none;
+}
+
+#submit_lunch_location {
+    box-shadow: 1px 1px 2px #888;
+    border-radius: 5px;
+    border: none;
+    margin-top: 1em;
+    background: linear-gradient(45deg,#33b1f8 0,#49a5f8 37%,#6e90f6 100%);
+}
+
+#submit_lunch_location:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+*:focus {
+  outline: 0;
+}
