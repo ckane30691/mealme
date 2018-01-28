@@ -17,7 +17,6 @@ class TwilioController < ApplicationController
      message.body("Location Recieved. Look out for location info at 11:30 AM.")
     end
 
-
     render :xml => response.to_xml
   end
 
@@ -40,4 +39,15 @@ class TwilioController < ApplicationController
     render json: {status: "Messages sent"}
   end
 
+
+  private
+
+  def get_geocode
+  end
+
+  def send_message
+  end
+
+  def add_user_to_database
+  end
 end
