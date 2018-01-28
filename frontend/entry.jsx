@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("submit_lunch_location")
           .addEventListener("click", function() {
             let data = document.getElementById("lunch_location_input").value;
+            alert(`Meal Event Scheduled at ${data} for 12 noon.`);
             sendLunchTimeLocation(data);
-            // console.log("worked");
           });
 
 });
