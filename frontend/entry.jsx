@@ -1,4 +1,5 @@
 import configureStore from './store/store';
+import {sendLunchTimeLocation} from './actions/hunger_actions';
 
 document.addEventListener("DOMContentLoaded", function() {
   const store = configureStore();
@@ -23,4 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
   const apiKey = require("./envVariables.js");
   loadMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
   document.getElementsByTagName("head")[0].appendChild(loadMapScript);
+
+  document.getElementById("submit_lunch_location")
+          .addEventListener("click", function() {
+            let data = document.getElementById("lunch_location_input").value;
+            sendLunchTimeLocation(data);
+            // console.log("worked");
+          });
+
 });
