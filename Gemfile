@@ -32,7 +32,7 @@ gem "twilio-ruby"
 # gem 'capistrano-rails', group: :development
 gem "http"
 gem "figaro"
-gem 'celluloid'
+
 
 group :development, :test do
   gem 'pry-rails'
