@@ -16,7 +16,7 @@ class TwilioController < ApplicationController
 
     response = Twilio::TwiML::MessagingResponse.new
     response.message do |message|
-     message.body("Location Recieved. Look out for location info at 11:30 AM.")
+     message.body("Location Received. Look out for location info at 11:30 AM.")
     end
 
     render :xml => response.to_xml
@@ -32,11 +32,13 @@ class TwilioController < ApplicationController
     @client = Twilio::REST::Client.new(account_sid, auth_token)
 
     Eater.all.each do |eater|
-      message = @client.messages.create(
-        body: "Lunch is served at #{lunch_location}. Be there at noon!",
-        to: eater.phone_number[1..-1], #Will eventually be a database of numbers from backend.
-        from: "16073043504"
-      )
+      fork do
+        message = @client.messages.create(
+          body: "Lunch is served at #{lunch_location}. Be there at noon!",
+          to: eater.phone_number[1..-1], #Will eventually be a database of numbers from backend.
+          from: "16073043504"
+        )
+      end
     end
 
     render json: {status: "Messages sent"}
@@ -66,9 +68,6 @@ class TwilioController < ApplicationController
     loc_y = JSON.parse(response)['results'][0]["geometry"]["location"]["lng"]
 
     {loc_x: loc_x, loc_y: loc_y}
-  end
-
-  def send_message
   end
 
   def parse_body(body)
