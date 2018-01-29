@@ -18,7 +18,7 @@ Adrian Jewell - Web Developer
 
 3. When the provider wants to notify people about lunch, they send a mass notification to everybody who is registered.
 
-[alt text](https://github.com/ckane30691/mealme/blob/master/docs/shot.png)
+![alt text](https://github.com/ckane30691/mealme/blob/master/docs/shot.png)
 
 # Instructions for Running
 
