@@ -18,6 +18,8 @@ Adrian Jewell - Web Developer
 
 3. When the provider wants to notify people about lunch, they send a mass notification to everybody who is registered.
 
+[alt text](https://github.com/ckane30691/mealme/blob/master/docs/shot.png)
+
 # Instructions for Running
 
 MealMe couldn't be easier to get up and running, assuming you have basic knowledge of web development and API Keys.
