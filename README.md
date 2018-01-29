@@ -12,11 +12,11 @@ Adrian Jewell - Web Developer
 
 # How does it work?
 
-1. Customers send their address to a specified phone number.
+1. Customers send their address to the Twilio webhook phone number.
 
-2. MealMe will record the information in a database, and display the users location to the provider, using the app.
+2. MealMe will record the information in a database, and display the users location to the provider, using the app below. The app will also send a confirmation message to the sender.
 
-3. When the provider wants to notify people about lunch, they send a mass notification to everybody who is registered.
+3. When the provider wants to notify people about lunch, they send a mass notification to everybody who is registered, again using the Twilio webhook.
 
 ![alt text](https://github.com/ckane30691/mealme/blob/master/docs/shot.png)
 
