@@ -26,17 +26,15 @@ class TwilioController < ApplicationController
     # put your own credentials here
     # debuggers
     lunch_location = request.body.readpartial #get it from the request.
-    account_sid = 'ACe39f617d99a09d34cb057bdb301be050'
-    auth_token = 'e38b379ec6cfbd4b7f5d57b0636ee9d3'
     # set up a client to talk to the Twilio REST API
-    @client = Twilio::REST::Client.new(account_sid, auth_token)
+    @client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 
     Eater.all.each do |eater|
       fork do
         message = @client.messages.create(
-          body: "Lunch is served at #{lunch_location}. Be there at noon!",
+          body: "Lunch is served at #{lunch_location}!",
           to: eater.phone_number[1..-1], #Will eventually be a database of numbers from backend.
-          from: "16073043504"
+          from: ENV['twilio_phone']
         )
       end
     end
@@ -63,7 +61,7 @@ class TwilioController < ApplicationController
   def get_geocode(text)
     query = parse_body(text)
 
-    response = open("https://maps.googleapis.com/maps/api/geocode/json?address=#{query}&key=#{ENV['maps_api_keys']}").read
+    response = open("https://maps.googleapis.com/maps/api/geocode/json?address=#{query}+sf&key=#{ENV['maps_api_keys']}").read
     loc_x = JSON.parse(response)['results'][0]["geometry"]["location"]["lat"]
     loc_y = JSON.parse(response)['results'][0]["geometry"]["location"]["lng"]
 
