@@ -4,7 +4,7 @@ MealMe helps food providers locate their customers more easily. The app is desig
 
 Contributors:
 
-Justin Deidrich - Business Concept/Presentation
+Justin Diederich - Business Concept/Presentation
 
 Cory Kane - Web Developer
 
